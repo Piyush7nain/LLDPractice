@@ -1,0 +1,21 @@
+## Producer-Consumer Problem (Bounded Buffer)
+
+### Requirements
+
+#### Functional Requirements:
+1. **Thread-Safe Queue:**
+   - Implement a shared bounded buffer where producers can add items and consumers can remove them.
+   - Ensure only one thread can modify the buffer at a time (either adding or removing an item).
+2. **Producers:**
+   - Producers should wait if the buffer is full and only proceed when space becomes available.
+3. **Consumers:**
+   - Consumers should wait if the buffer is empty and only proceed when an item is available.
+4. **Synchronization:**
+   - Use `wait()` and `notify()` for coordination between producers and consumers.
+5. **Graceful Shutdown:**
+   - Ensure the program can safely terminate all producer and consumer threads.
+
+#### Non-Functional Requirements:
+1. **Thread Safety:** Ensure correct synchronization to prevent race conditions.
+2. **Scalability:** Allow dynamic addition of producer and consumer threads.
+3. **Performance:** Minimize thread contention for better performance.

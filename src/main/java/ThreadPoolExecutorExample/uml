@@ -1,0 +1,37 @@
++-------------------------------------+
+|    ThreadPool                       |
+|-------------------------------------|
+| - int corePoolSize                  |
+| - int maxPoolSize                   |
+| - BlockingQueue<Runnable> taskQueue |
+| - List<Worker> workers              |
+| - boolean isShutdown                |
+|-------------------------------------|
+| + execute(Runnable task)            |
+| + shutdown()                        |
+| + shutdownNow()                     |
+| + getActiveCount()                  |
+| + getQueueSize()                    |
++-------------------------------------+
+              |
+              |
+              v
++-------------------------------------+
+|      Worker (implements Runnable)   |
+|-------------------------------------|
+| - Thread thread                     |
+| - BlockingQueue<Runnable> taskQueue |
+| - boolean isRunning                 |
+|-------------------------------------|
+| + run()                             |
+| + stop()                            |
++-------------------------------------+
+              ^
+              |
+              |
++--------------------+
+|      Runnable      |
+|--------------------|
+| + run()            |
++--------------------+
+

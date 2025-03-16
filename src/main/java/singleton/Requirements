@@ -1,0 +1,57 @@
+1. Problem Statement:
+Design and implement a Singleton Class that ensures only one
+instance of the class is created throughout the application's
+lifecycle, even when accessed by multiple threads concurrently.
+
+This singleton should be:
+
+Thread-safe: No race conditions during instance creation.
+Efficient: Minimize the performance overhead due to synchronization.
+Lazy-initialized: The instance should be created only when it’s needed.
+Globally accessible: Provide a global access point to the instance.
+
+
+📌 2. Functional Requirements:
+Singleton Guarantee: Only one instance of the class should exist at any time.
+Thread Safety: The implementation must handle concurrent access without issues like race conditions.
+Lazy Initialization: The instance should be created only when requested for the first time.
+Global Access: Provide a method to access the singleton instance (getInstance()).
+
+🚫 3. Non-Functional Requirements:
+Performance Efficiency: Minimize the performance cost of synchronization, especially after the singleton has been initialized.
+Memory Efficiency: The instance should not occupy memory unless it's actually needed.
+High Scalability: The solution should work efficiently even under heavy multi-threaded workloads.
+
+⚠️ 4. Edge Cases & Concurrency Challenges:
+Race Condition: Multiple threads trying to create an instance simultaneously.
+Instruction Reordering: The JVM or CPU might reorder instructions, causing the instance to be seen as initialized when it's not.
+Double Initialization: Without proper locking, two threads might create separate instances.
+Serialization Issue: When deserializing a singleton, it might create a new instance.
+Reflection Attack: Reflection can break singleton guarantees by accessing the private constructor.
+
+🚀 5. Design Approaches:
+✅ Approach 1: Eager Initialization (Simple but Non-Lazy)
+Pros: Thread-safe due to JVM class loading behavior.
+Cons: Instance created even if it's never used.
+
+✅ Approach 2: Synchronized Method (Thread-Safe but Slower)
+Pros: Simple and thread-safe.
+Cons: Synchronization overhead on every call to getInstance().
+
+✅ Approach 3: Double-Checked Locking with volatile (Efficient & Lazy)
+Pros: Thread-safe, lazy-initialized, minimal synchronization overhead.
+Cons: Requires understanding of volatile to prevent instruction reordering issues.
+
+✅ Approach 4: Bill Pugh Singleton (Best Practice)
+Pros: Lazy-loaded, thread-safe without explicit synchronization.
+Cons: Relies on JVM’s classloader mechanism.
+
+📊 6. Class Diagram:
++--------------------------------+
+|   Singleton                    |
++--------------------------------+
+| - instance: Singleton (static) |
++--------------------------------+
+| + getInstance(): Singleton     |
+| - Singleton() (private)        |
++--------------------------------+

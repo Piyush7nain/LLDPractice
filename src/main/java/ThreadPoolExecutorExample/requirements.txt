@@ -1,0 +1,54 @@
+Thread Pool Executor — Requirements
+1. Thread Management
+The thread pool should maintain a fixed number of worker threads.
+When a task is submitted:
+If a thread is available, it should pick up the task immediately.
+If all threads are busy, the task should be added to a task queue.
+Threads should continuously pick tasks from the queue when they finish their current task.
+2. Task Submission
+Provide a method to submit tasks (like execute(Runnable task)):
+This method should add tasks to the queue if threads are busy.
+Should not block the caller — simply queues the task.
+3. Graceful Shutdown
+Implement a way to shut down the thread pool gracefully:
+shutdown(): Stops accepting new tasks but allows already submitted tasks to complete.
+shutdownNow(): Attempts to stop all active threads immediately and clears the task queue.
+Ensure proper handling of thread interruptions during shutdown.
+4. Blocking Queue for Tasks
+Use a thread-safe blocking queue (like LinkedBlockingQueue) to hold pending tasks:
+Ensure thread-safe access.
+Support both adding (put()) and retrieving tasks (take()).
+5. Worker Threads
+Create a Worker class (or Runnable) that:
+Continuously picks tasks from the queue.
+Executes tasks one by one.
+Waits if there are no tasks (using blocking behavior).
+6. Concurrency and Synchronization
+Ensure thread-safety when:
+Adding tasks to the queue.
+Updating thread states (active/idle).
+Shutting down the pool.
+Use proper synchronization tools — e.g., ReentrantLock, Condition, or synchronized.
+7. Error Handling
+Handle task exceptions properly:
+Ensure one task’s failure doesn’t crash the worker thread.
+Consider logging or using a callback mechanism for failed tasks.
+8. Thread Reusability
+Threads should be reused — once a thread completes a task, it should pick another task from the queue.
+Avoid thread creation overhead by pre-creating worker threads.
+9. Customization
+Allow configuring:
+Core pool size: Minimum number of threads always alive.
+Max pool size: Cap on threads — reject tasks if queue is full and max threads are reached.
+Queue size: Limit the number of pending tasks.
+10. Monitoring and Metrics (Optional but Advanced)
+Implement methods to:
+Get the number of active threads.
+Check queue size (pending tasks).
+Provide statistics — like total tasks completed, average task time, etc.
+
+
+
+
+
+

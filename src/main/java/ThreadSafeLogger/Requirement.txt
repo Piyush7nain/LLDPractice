@@ -1,0 +1,52 @@
+Requirements for a Thread-Safe Logger
+Functional Requirements:
+Concurrent Logging:
+
+Multiple threads should be able to log messages without data corruption or interleaving.
+Each log entry should remain intact and not be mixed with others.
+Thread Safety:
+
+Ensure synchronization so that logs are written atomically without race conditions.
+No two threads should write to the log file simultaneously in an inconsistent manner.
+Log Storage:
+
+Support logging to a file, console, or both.
+Ensure log messages are formatted with timestamps and thread details.
+Logging Levels:
+
+Support different log levels (INFO, DEBUG, ERROR, etc.) and allow filtering.
+Non-Blocking & Performance Efficient:
+
+Should not block threads unnecessarily while logging.
+Consider using a buffer or queue to minimize lock contention.
+Graceful Shutdown:
+
+Ensure all pending logs are flushed before application exit.
+Handle thread interruptions properly.
+Non-Functional Requirements:
+Scalability:
+
+Should handle a high volume of log messages efficiently.
+Should work with multiple loggers running in parallel.
+Reliability:
+
+No logs should be lost or corrupted, even if multiple threads are logging simultaneously.
+Extensibility:
+
+Should allow easy integration with different logging destinations (e.g., cloud, database).
+Configurability:
+
+Allow configuration of log file size, rotation policy, and log levels.
+Potential Design Approaches:
+Synchronized Logging:
+
+Use synchronized to ensure only one thread writes at a time (simple but can be slow).
+Lock-based Logging:
+
+Use ReentrantLock for better performance over synchronized blocks.
+Queue-based Logging (Recommended for Performance):
+
+Use a concurrent queue (BlockingQueue<String>) where threads add log messages, and a dedicated logging thread writes them to the file.
+Java Logging API (java.util.logging or Log4j):
+
+Use an existing thread-safe logging framework instead of reinventing the wheel.

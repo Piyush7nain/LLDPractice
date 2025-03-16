@@ -1,0 +1,58 @@
+🚀 Thread Synchronization and Communication
+Implement a thread-safe counter:
+Create a counter class with methods to increment, decrement, and get the count safely in a multithreaded environment.
+Use synchronized blocks, ReentrantLock, and AtomicInteger — explore all methods.
+
+Producer-Consumer Problem (Bounded Buffer):
+Implement a thread-safe queue where producers add items and consumers remove them.
+Use wait(), notify(), and blocking queues.
+
+Thread Join Simulation:
+Implement a custom version of Thread.join() using wait() and notify().
+
+Print Numbers Alternately (Even-Odd problem):
+Two threads print numbers 1 to N — one prints even, the other prints odd numbers, in order.
+Use thread synchronization to maintain the correct sequence.
+
+🔥 Concurrency Patterns and Locks
+
+Dining Philosophers Problem:
+Solve this classic problem using threads and locks.
+Explore solutions using both mutexes and semaphores.
+
+Read-Write Lock Implementation:
+Design a custom Read-Write lock class.
+Ensure multiple readers can access simultaneously, but writers get exclusive access.
+
+Thread Pool Implementation:
+Implement a simple thread pool executor.
+Support execute(), shutdown(), and task queuing.
+
+ReentrantLock and Condition Variables:
+Create a class that uses ReentrantLock and Condition to manage thread communication (like producer-consumer but without synchronized).
+
+⚙️ Advanced Concepts
+Implement Future and Callable:
+Create a simple Future interface and thread pool that can execute tasks and return results asynchronously.
+
+Rate Limiter (Token Bucket Algorithm):
+Design a thread-safe rate limiter using a token bucket algorithm to control how many tasks can be processed per second.
+
+Custom CyclicBarrier:
+Implement a CyclicBarrier that lets N threads wait for each other before proceeding.
+
+Implement a Thread-safe Singleton:
+Write a singleton class that is safe for concurrent use — explore double-checked locking and volatile.
+
+🌟 Real-world Inspired Scenarios
+File Reader using Multithreading:
+Create a program where multiple threads read a large file in chunks and process them concurrently.
+
+Rate Limiter for API Requests:
+Implement a multithreaded rate limiter for handling incoming API requests.
+
+Thread-safe Logger:
+Design a thread-safe logger that logs messages from multiple threads without corruption.
+
+Task Scheduling System:
+Build a simple task scheduler where tasks run at fixed intervals using ScheduledExecutorService.

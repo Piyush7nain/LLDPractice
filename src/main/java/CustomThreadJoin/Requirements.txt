@@ -1,0 +1,48 @@
+Requirements for Custom Thread.join() Implementation using wait() and notify()
+1️⃣ Functional Requirements
+We need to implement a custom version of Thread.join(), allowing one thread to wait for another thread to finish execution before proceeding.
+
+Custom join() Method
+
+The calling thread should wait until the target thread completes execution.
+We will achieve this using wait() and notify().
+Thread Completion Notification
+
+When a thread finishes execution, it should notify any other threads that are waiting for it.
+We will use notifyAll() for this.
+Support for Multiple Waiting Threads
+
+If multiple threads are waiting for a thread to finish, all should be notified once it completes.
+Handle Spurious Wakeups
+
+The waiting thread should re-check if the target thread is finished after waking up.
+2️⃣ Non-Functional Requirements
+Thread-Safety
+
+The implementation should be safe for concurrent use.
+We should ensure synchronization to avoid race conditions.
+Minimal Performance Overhead
+
+The implementation should be efficient and avoid unnecessary CPU usage.
+Graceful Handling of Interruptions
+
+If the waiting thread is interrupted while waiting, it should handle the interruption properly.
+No Reliance on Thread.join()
+
+The implementation must not use Java’s built-in Thread.join(), but instead rely on wait() and notify().
+3️⃣ Edge Cases to Handle
+✅ Thread Already Finished Before join() is Called
+
+If a thread is already finished before join() is called, the waiting thread should proceed immediately.
+✅ Multiple Threads Waiting on the Same Thread
+
+If multiple threads call join() on the same thread, all should be notified when it finishes.
+✅ Handling Interrupted Exceptions
+
+If the waiting thread is interrupted while waiting, it should exit gracefully or handle the exception.
+✅ Preventing Deadlocks
+
+Ensure that waiting threads do not remain blocked forever in case of unexpected errors.
+✅ Handling Spurious Wakeups
+
+The waiting thread should re-check the condition after waking up, ensuring that it doesn’t continue execution prematurely.
