@@ -10,10 +10,20 @@ public class Log {
         this.time = time;
         this.level = level;
         this.threadName = threadName;
+        print();
     }
 
     public void print(){
-        System.out.println(threadName + "-" + level + "-" + time + "-" + logLine);
+        System.out.println(threadName + " -- " + level + " -- " + time + " -- " + logLine);
+    }
+
+    public String getLogLine() {
+        return threadName + " -- " + level + " -- " + time + " -- " + logLine;
+    }
+
+    @Override
+    public String toString() {
+        return getLogLine();
     }
 }
 
