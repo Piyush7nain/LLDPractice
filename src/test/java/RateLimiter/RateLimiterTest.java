@@ -61,6 +61,31 @@ public class RateLimiterTest {
     }
 
     @Test
+    public void testMultiThreading_hugeNumber() throws InterruptedException, ExecutionException {
+        FixedWindowRateLimiter rateLimiter = new FixedWindowRateLimiter(1000, 3000, TimeUnit.MILLISECONDS);
+        ExecutorService executor = Executors.newFixedThreadPool(10);
+        List<Future<Boolean>> results = new ArrayList<>();
+
+        for (int i = 0; i < 100; i++) {
+            results.add((Future<Boolean>) executor.submit(() -> {
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                rateLimiter.allowRequest();
+            }));
+        }
+
+        executor.shutdown();
+        executor.awaitTermination(5, TimeUnit.SECONDS);
+
+        for (Future<Boolean> result : results) {
+            assertTrue(result.get());// "All requests should be allowed");
+        }
+    }
+
+    @Test
     public void testMultiThreadingWithExceedingRequests() throws InterruptedException, ExecutionException {
         FixedWindowRateLimiter rateLimiter = new FixedWindowRateLimiter(5, 1000,TimeUnit.MILLISECONDS);
         ExecutorService executor = Executors.newFixedThreadPool(10);
