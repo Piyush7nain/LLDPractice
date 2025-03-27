@@ -1,0 +1,80 @@
+Functional Requirements
+
+Limit Requests Per Time Window:
+    The system should allow only a fixed number of requests (e.g., N requests per second).
+    Requests exceeding the limit should be rejected or delayed.
+
+Multi-Threading Support:
+    Multiple threads should be able to request access simultaneously.
+    Ensure proper synchronization to prevent race conditions.
+
+Fairness:
+    Requests should be processed fairly, meaning no thread should be starved due to contention.
+    Optionally, prioritize some requests over others (e.g., using priority queues).
+
+Configurable Limit and Time Window:
+    Allow dynamic configuration of:
+        Maximum allowed requests (N).
+        Time window (T seconds or milliseconds).
+
+Blocking vs Non-Blocking Behavior:
+
+    Blocking Mode: If the limit is reached, new requests wait until the next available time slot.
+    Non-Blocking Mode: Excess requests are immediately rejected (return an error response).
+
+Granularity of Time Window:
+    Support different time granularities (e.g., per second, per minute, per hour).
+    Use fixed window, sliding window, or token bucket approaches.
+
+📌 Non-Functional Requirements
+Thread-Safety:
+    Ensure that the rate limiter handles concurrent access safely.
+
+Performance & Scalability:
+    Minimize synchronization overhead.
+    Allow handling of thousands of requests per second efficiently.
+
+Fault Tolerance:
+    Handle unexpected system failures gracefully.
+    Ensure rate limiting still functions under heavy load.
+
+Logging & Monitoring:
+    Log rejected requests for analysis.
+    Provide metrics on allowed vs rejected requests.
+
+Low Memory Footprint:
+    Avoid excessive memory usage when handling a large number of unique clients.
+
+Implement efficient data structures.
+📌 Possible Implementations
+1️⃣ Fixed Window Rate Limiter
+    Divide time into fixed windows (e.g., every 1 second).
+    Maintain a counter for each window.
+    If count exceeds limit N, reject new requests until the next window.
+    ✅ Pros: Simple & efficient.
+    ❌ Cons: Bursty traffic allowed at window boundaries.
+
+2️⃣ Sliding Window Rate Limiter
+    Uses timestamps to track requests over a rolling window.
+    Only considers requests within the last T seconds.
+    ✅ Pros: Smoother request distribution.
+    ❌ Cons: Slightly more complex.
+
+3️⃣ Token Bucket Algorithm
+    Maintain a bucket filled with N tokens.
+    Every request consumes a token.
+    Tokens are refilled at a fixed rate (e.g., 1 per second).
+    ✅ Pros: Allows some bursts while maintaining an average rate.
+    ❌ Cons: More complex synchronization.
+
+4️⃣ Leaky Bucket Algorithm
+    Requests enter a queue and are processed at a constant rate.
+    If the queue is full, new requests are dropped.
+    ✅ Pros: Prevents sudden spikes in load.
+    ❌ Cons: Limited flexibility.
+
+📌 Example Use Cases
+API Rate Limiting (e.g., Allow only 100 API calls per minute per user).
+Login Attempt Restriction (e.g., Prevent brute-force attacks).
+Database Query Throttling (e.g., Limit expensive DB queries).
+DDOS Protection (e.g., Drop excess requests from a single IP).
