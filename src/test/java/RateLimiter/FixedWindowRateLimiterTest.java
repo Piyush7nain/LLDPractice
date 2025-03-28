@@ -14,7 +14,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RateLimiterTest {
+public class FixedWindowRateLimiterTest {
     @Test
     public void testRequestsWithinLimit() {
         FixedWindowRateLimiter rateLimiter = new FixedWindowRateLimiter(5, 1000, TimeUnit.MILLISECONDS);
