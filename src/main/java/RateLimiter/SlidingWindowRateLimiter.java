@@ -2,7 +2,6 @@ package RateLimiter;
 
 import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class SlidingWindowRateLimiter implements RateLimiter {

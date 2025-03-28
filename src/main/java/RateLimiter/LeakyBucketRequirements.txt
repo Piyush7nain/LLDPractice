@@ -1,0 +1,27 @@
+🔹 Functional Requirements
+1️⃣ Fixed Processing Rate
+    Requests are processed at a constant rate (e.g., 1 request per 100ms).
+    Excess requests wait in a queue instead of being dropped immediately.
+
+2️⃣ Queue for Bursty Traffic
+    Requests exceeding the rate limit are queued in a fixed-size buffer (bucket).
+    If the queue is full, new requests are dropped.
+
+3️⃣ Thread-Safe Implementation
+    Multiple threads should be able to call allowRequest().
+    Concurrent access should be handled using thread-safe data structures.
+
+4️⃣ Processing in the Background
+    A scheduled task or background thread should continuously process requests at a fixed interval.
+    Requests should leak out at a steady rate.
+
+🔹 Non-Functional Requirements
+✅ Low Latency – Must handle high QPS efficiently.
+✅ Scalability – Should support multiple rate limits per user/service.
+✅ Fairness – Prevents a burst of requests from starving other users.
+✅ Extensibility – Should be easy to adapt for distributed rate limiting (e.g., Redis-based).
+
+🔹 Example Scenarios
+📌 API Rate Limiting – Ensures API servers are not overwhelmed.
+📌 Traffic Shaping – Controls bursty traffic in networking applications.
+📌 Database Protection – Prevents sudden high loads from overloading a DB.
