@@ -1,0 +1,80 @@
+✅ 1. Singleton Pattern
+Use When:
+You want to ensure only one instance of a class exists (e.g., logger, configuration).
+Questions:
+Implement a thread-safe singleton logger.
+Design a config loader that loads from a file only once.
+Build a DatabaseConnectionManager that ensures only one DB connection pool.
+
+✅ 2. Factory Pattern
+Use When:
+You want to create objects without exposing the creation logic.
+🧠 Questions:
+Design a Vehicle Factory (Car, Bike, Bus based on input).
+Implement a Notification Factory that returns Email, SMS, or Push notification service.
+Create a Shape Factory that supports Circle, Rectangle, Triangle.
+
+✅ 3. Strategy Pattern
+Use When:
+You want to change behavior at runtime (plug-and-play algorithm).
+Questions:
+Design a Ride-Matching Strategy (by price, distance, vehicle type).
+Implement a Payment Service that selects Credit Card, UPI, Wallet.
+Create a Compression Tool with ZIP, RAR, GZIP strategies.
+
+✅ 4. Observer Pattern
+Use When:
+You want dependent objects to be notified of changes (pub-sub).
+Questions:
+Design a Stock Price Monitor where clients subscribe to stock updates.
+Build a Weather Station System that updates multiple displays.
+Implement a Notification Dispatcher that notifies users of events.
+
+✅ 5. Decorator Pattern
+Use When:
+You want to add features to an object dynamically.
+Questions:
+Design a Coffee Shop Order System with add-ons like milk, mocha, caramel.
+Create a Text Editor that supports formatting like bold, italic, underline.
+Implement a Pizza Builder with different toppings as decorators.
+
+✅ 6. Command Pattern
+Use When:
+You want to encapsulate a request as an object (for undo/redo).
+Questions:
+Implement a Remote Control System with on/off commands.
+Design a Text Editor with Undo/Redo.
+Build a Macro Recorder for executing command sequences.
+
+✅ 7. Adapter Pattern
+Use When:
+You need to make incompatible interfaces work together.
+Questions:
+Design a Media Player Adapter to support multiple file types (mp3, mp4, vlc).
+Implement a Third-party Payment Gateway Adapter.
+Create an Old Logger → New Logger Adapter.
+
+✅ 8. Builder Pattern
+Use When:
+You want to construct complex objects step by step.
+Questions:
+Design a Builder for Immutable Objects (e.g., a Resume).
+Implement a URL Builder or SQL Query Builder.
+Create a User Profile Builder for a sign-up flow.
+
+✅ 9. Proxy Pattern
+Use When:
+You want to add access control, lazy loading, or caching.
+Questions:
+Design a Rate Limiting Proxy for an API.
+Implement a Virtual Proxy for loading large images.
+Build a Cache Proxy for a Database Layer.
+
+✅ 10. State Pattern
+Use When:
+The object behavior changes based on its state.
+Questions:
+Model a Vending Machine.
+Design a Traffic Light System.
+Build a Media Player with Playing, Paused, Stopped states.
+

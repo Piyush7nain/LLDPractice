@@ -1,0 +1,88 @@
+🚗 Parking Lot System – Exhaustive Requirements
+🔹 1. Functional Requirements
+🅿️ Parking Management
+The system should support multiple levels/floors in a parking lot.
+Each level can have multiple parking slots.
+A parking slot can be assigned to only one vehicle at a time.
+Parking slots are categorized by vehicle type:
+Two-wheeler
+Car
+Truck/Bus
+Electric Vehicle (optional)
+
+🚘 Vehicle Entry & Exit
+When a vehicle enters:
+Find a nearest available slot (or based on allocation strategy).
+
+Assign the slot and issue a ticket with:
+Entry timestamp
+Slot number
+Vehicle info
+
+When a vehicle exits:
+Release the slot.
+Calculate and collect the parking fee.
+Generate a receipt or invoice.
+
+🧾 Ticketing System
+Generate a unique ticket ID per vehicle.
+Ticket must store:
+Entry time
+Vehicle number and type
+Slot details
+(Optional) Operator name or gate info
+
+💰 Billing & Fee Calculation
+Calculate parking charges based on:
+Total time spent
+Vehicle type
+Pricing strategy (hourly, flat, progressive)
+Support multiple fee strategies using plug-in models (e.g., weekend discount, EV free parking).
+
+🔌 Optional/Advanced Functional Features
+⚡ Electric Vehicle Support
+EV slots with charging options.
+EVs must be directed to special slots with chargers when available.
+
+🎫 Reservations
+Allow pre-booking of slots for specific users or vehicles.
+
+🛂 Access Control
+Entry and exit must be via controlled gates.
+
+Gates can log timestamp and gate ID per ticket.
+
+👷 Operator Actions
+Admin/operator should be able to:
+View parking availability
+Block/unblock a slot manually
+Evict illegally parked vehicles
+View parking history and reports
+
+🔔 Notifications
+Alert admin when parking is full.
+Alert for overstays or expired tickets.
+
+🔹 2. Non-Functional Requirements
+🔄 Concurrency
+Multiple vehicles can enter/exit simultaneously.
+Data consistency must be preserved.
+
+🧱 Scalability
+The system should support 1 to N floors and thousands of slots.
+Should support deployment across multiple lots (multi-lot support – optional).
+
+🔒 Security
+Ticket forgery prevention
+Proper authentication for admin actions
+
+💽 Persistence (Optional in LLD)
+In-memory or file/database backed storage of:
+Tickets
+Slot status
+Billing history
+
+⏱️ Performance
+Slot assignment and fee calculation must be fast and efficient.
+Ticket issue/exit should not cause delays.
+
