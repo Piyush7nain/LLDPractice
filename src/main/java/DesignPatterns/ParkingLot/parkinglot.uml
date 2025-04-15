@@ -3,256 +3,167 @@
   <ID>JAVA</ID>
   <OriginalElement>/Users/pnain/Personal/JavaProjects/LLDPractice/src/main/java/DesignPatterns/ParkingLot</OriginalElement>
   <nodes>
-    <node x="-1430.81046875" y="580.0">DesignPatterns.ParkingLot.Billing.BillingStrategyType</node>
-    <node x="-1222.5604687499997" y="169.0">DesignPatterns.ParkingLot.Billing.HourlyBillingStrategy</node>
-    <node x="-724.4624999999999" y="866.0">DesignPatterns.ParkingLot.models.Receipt</node>
-    <node x="-1633.0" y="169.0">DesignPatterns.ParkingLot.Billing.FlatPriceBillingStrategy</node>
-    <node x="-258.9979687499997" y="1326.0">DesignPatterns.ParkingLot.models.Slot</node>
-    <node x="-489.46249999999986" y="981.0">DesignPatterns.ParkingLot.models.Ticket</node>
-    <node x="-92.46249999999986" y="1004.0">DesignPatterns.ParkingLot.models.Vehicle</node>
-    <node x="-650.9624999999999" y="534.0">DesignPatterns.ParkingLot.Billing.BillingManager</node>
-    <node x="-500.25" y="77.0">DesignPatterns.ParkingLot.ParkingLot</node>
-    <node x="-737.6499999999999" y="1564.0">DesignPatterns.ParkingLot.models.VehicleType</node>
-    <node x="-1116.4624999999999" y="1027.5">DesignPatterns.ParkingLot.Billing.BillingStrategy</node>
-    <node x="-304.96249999999986" y="488.0">DesignPatterns.ParkingLot.ParkingLevel</node>
+    <node x="-1482.2655991212393" y="1236.6930294906167">DesignPatterns.ParkingLot.Billing.BillingStrategyType</node>
+    <node x="-973.5919198689305" y="864.1921358355675">DesignPatterns.ParkingLot.Billing.HourlyBillingStrategy</node>
+    <node x="-416.49736111111156" y="872.0">DesignPatterns.ParkingLot.models.Receipt</node>
+    <node x="-1410.337801608579" y="864.1921358355675">DesignPatterns.ParkingLot.Billing.FlatPriceBillingStrategy</node>
+    <node x="181.44013888888867" y="1325.5">DesignPatterns.ParkingLot.models.Slot</node>
+    <node x="-201.49736111111156" y="964.0">DesignPatterns.ParkingLot.models.Ticket</node>
+    <node x="-19.49736111111156" y="987.0">DesignPatterns.ParkingLot.models.Vehicle</node>
+    <node x="-575.4973611111116" y="552.0">DesignPatterns.ParkingLot.Billing.BillingManager</node>
+    <node x="-318.00277777777774" y="77.0">DesignPatterns.ParkingLot.ParkingLot</node>
+    <node x="-565.5723611111114" y="1314.0">DesignPatterns.ParkingLot.models.VehicleType</node>
+    <node x="-1158.9501388888891" y="1236.6930294906167">DesignPatterns.ParkingLot.Billing.BillingStrategy</node>
+    <node x="75.74583333333317" y="506.0">DesignPatterns.ParkingLot.ParkingLevel</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="DesignPatterns.ParkingLot.models.Receipt" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="DEPENDENCY">
-      <point x="0.0" y="204.0" />
-      <point x="-617.4624999999999" y="1534.0" />
-      <point x="-135.83749999999986" y="1534.0" />
-      <point x="-135.83749999999986" y="1544.0" />
-      <point x="-569.6499999999999" y="1544.0" />
-      <point x="56.0" y="-77.5" />
-    </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLevel" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="TO_MANY">
-      <point x="-115.875" y="158.0" />
-      <point x="-266.33749999999986" y="825.0" />
-      <point x="-269.4979687499997" y="825.0" />
-      <point x="-269.4979687499997" y="1524.0" />
-      <point x="-1126.9624999999999" y="1524.0" />
-      <point x="-1126.9624999999999" y="1544.0" />
-      <point x="-681.6499999999999" y="1544.0" />
-      <point x="-56.0" y="-77.5" />
+      <point x="0.0" y="158.0" />
+      <point x="230.24583333333317" y="1294.1930294906167" />
+      <point x="-448.99736111111156" y="1294.1930294906167" />
+      <point x="4.574999999999818" y="-77.5" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLevel" target="DesignPatterns.ParkingLot.models.Slot" relationship="CREATE">
-      <point x="-38.625" y="158.0" />
-      <point x="-189.08749999999986" y="825.0" />
-      <point x="-150.61874999999964" y="825.0" />
-      <point x="-150.61874999999964" y="1295.0" />
-      <point x="-151.9979687499997" y="1295.0" />
-      <point x="0.0" y="-89.0" />
-    </edge>
-    <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.Billing.BillingStrategy" relationship="TO_ONE">
-      <point x="-123.55000000000007" y="169.5" />
-      <point x="-447.29999999999995" y="457.0" />
-      <point x="-748.7124999999999" y="457.0" />
-      <point x="-748.7124999999999" y="845.0" />
-      <point x="-837.4624999999999" y="845.0" />
-      <point x="93.0" y="-42.5" />
+      <point x="29.694305555555502" y="158.0" />
+      <point x="0.0" y="-66.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.FlatPriceBillingStrategy" target="DesignPatterns.ParkingLot.Billing.BillingStrategy" relationship="REALIZATION">
-      <point x="0.0" y="77.5" />
-      <point x="-1447.0" y="825.0" />
-      <point x="-949.25" y="825.0" />
-      <point x="-949.25" y="835.0" />
-      <point x="-1023.4624999999999" y="835.0" />
-      <point x="-93.0" y="-42.5" />
+      <point x="178.5" y="77.5" />
+      <point x="-72.88766271968984" y="-42.5" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.models.Slot" relationship="DEPENDENCY">
-      <point x="17.649999999999977" y="169.5" />
-      <point x="-306.0999999999999" y="437.0" />
-      <point x="-315.46249999999986" y="437.0" />
-      <point x="-315.46249999999986" y="1295.0" />
-      <point x="-408.46249999999986" y="1295.0" />
-      <point x="-408.46249999999986" y="1305.0" />
-      <point x="-223.33130208333296" y="1305.0" />
-      <point x="-71.33333333333331" y="-89.0" />
+      <point x="176.5" y="-15.0" />
+      <point x="402.24583333333317" y="231.5" />
+      <point x="402.24583333333317" y="1391.5" />
+      <point x="78.5" y="0.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.models.Receipt" relationship="DEPENDENCY">
-      <point x="-158.85000000000008" y="169.5" />
-      <point x="-482.5999999999999" y="447.0" />
-      <point x="-759.7124999999999" y="447.0" />
-      <point x="-759.7124999999999" y="825.0" />
-      <point x="-670.9624999999999" y="825.0" />
-      <point x="-53.5" y="-204.0" />
+      <point x="-92.49458333333382" y="169.5" />
+      <point x="85.5" y="-181.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLevel" target="DesignPatterns.ParkingLot.models.Vehicle" relationship="DEPENDENCY">
-      <point x="115.875" y="158.0" />
-      <point x="-34.587499999999864" y="825.0" />
-      <point x="14.537500000000136" y="825.0" />
+      <point x="-142.74319444444473" y="158.0" />
       <point x="0.0" y="-66.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.ParkingLevel" relationship="TO_MANY">
-      <point x="52.94999999999999" y="169.5" />
-      <point x="-270.79999999999995" y="467.0" />
-      <point x="-227.71249999999986" y="467.0" />
-      <point x="-77.25" y="-158.0" />
+      <point x="176.5" y="0.0" />
+      <point x="230.24583333333317" y="246.5" />
+      <point x="0.0" y="-158.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.models.Ticket" target="DesignPatterns.ParkingLot.models.Slot" relationship="DEPENDENCY">
       <point x="0.0" y="89.0" />
-      <point x="-408.46249999999986" y="1305.0" />
-      <point x="-223.33130208333296" y="1305.0" />
-      <point x="-71.33333333333331" y="-89.0" />
+      <point x="-120.49736111111156" y="1406.5" />
+      <point x="-78.5" y="15.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.models.Ticket" relationship="CREATE">
-      <point x="-17.650000000000034" y="169.5" />
-      <point x="-341.4000000000001" y="437.0" />
-      <point x="-346.46249999999986" y="437.0" />
-      <point x="-346.46249999999986" y="825.0" />
-      <point x="-367.96249999999986" y="825.0" />
-      <point x="40.5" y="-89.0" />
+      <point x="-15.0" y="169.5" />
+      <point x="-36.00541666666618" y="-89.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.FlatPriceBillingStrategy" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="TO_MANY">
-      <point x="-124.0" y="77.5" />
-      <point x="-1571.0" y="437.0" />
-      <point x="-1458.0" y="437.0" />
-      <point x="-1458.0" y="1524.0" />
-      <point x="-1126.9624999999999" y="1524.0" />
-      <point x="-1126.9624999999999" y="1544.0" />
-      <point x="-681.6499999999999" y="1544.0" />
-      <point x="-56.0" y="-77.5" />
+      <point x="-186.0" y="0.0" />
+      <point x="-1499.7655991212393" y="941.6921358355675" />
+      <point x="-1499.7655991212393" y="1391.5" />
+      <point x="-112.0" y="0.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.Billing.BillingManager" relationship="CREATE">
-      <point x="-88.25000000000006" y="169.5" />
-      <point x="-412.0" y="467.0" />
-      <point x="-467.21249999999986" y="467.0" />
-      <point x="36.75" y="-112.0" />
+      <point x="-154.0" y="169.5" />
+      <point x="132.99458333333382" y="-112.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.BillingManager" target="DesignPatterns.ParkingLot.models.Slot" relationship="DEPENDENCY">
-      <point x="36.75" y="112.0" />
-      <point x="-467.21249999999986" y="825.0" />
-      <point x="-499.96249999999986" y="825.0" />
-      <point x="-499.96249999999986" y="1295.0" />
-      <point x="-408.46249999999986" y="1295.0" />
-      <point x="-408.46249999999986" y="1305.0" />
-      <point x="-223.33130208333296" y="1305.0" />
-      <point x="-71.33333333333331" y="-89.0" />
+      <point x="0.0" y="-112.0" />
+      <point x="-428.49736111111156" y="59.5" />
+      <point x="417.24583333333317" y="59.5" />
+      <point x="417.24583333333317" y="1406.5" />
+      <point x="78.5" y="15.0" />
+    </edge>
+    <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.Billing.BillingStrategy" relationship="DEPENDENCY">
+      <point x="-176.5" y="0.0" />
+      <point x="-991.0919198689305" y="246.5" />
+      <point x="-18.141780980041403" y="-42.5" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.BillingManager" target="DesignPatterns.ParkingLot.models.Receipt" relationship="CREATE">
-      <point x="-36.75" y="112.0" />
-      <point x="-540.7124999999999" y="825.0" />
-      <point x="-563.9624999999999" y="825.0" />
-      <point x="53.5" y="-204.0" />
+      <point x="109.0" y="112.0" />
+      <point x="0.0" y="-181.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.HourlyBillingStrategy" target="DesignPatterns.ParkingLot.Billing.BillingStrategy" relationship="REALIZATION">
-      <point x="46.5" y="77.5" />
-      <point x="-990.0604687499997" y="437.0" />
-      <point x="-949.25" y="437.0" />
-      <point x="-949.25" y="835.0" />
-      <point x="-1023.4624999999999" y="835.0" />
-      <point x="-93.0" y="-42.5" />
-    </edge>
-    <edge source="DesignPatterns.ParkingLot.models.Slot" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="DEPENDENCY">
-      <point x="0.0" y="89.0" />
-      <point x="-151.9979687499997" y="1534.0" />
-      <point x="-135.83749999999986" y="1534.0" />
-      <point x="-135.83749999999986" y="1544.0" />
-      <point x="-569.6499999999999" y="1544.0" />
-      <point x="56.0" y="-77.5" />
+      <point x="-178.5" y="77.5" />
+      <point x="6.858219019958597" y="-42.5" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="DEPENDENCY">
-      <point x="158.84999999999997" y="169.5" />
-      <point x="-164.9000000000001" y="437.0" />
-      <point x="132.03750000000014" y="437.0" />
-      <point x="132.03750000000014" y="1534.0" />
-      <point x="-135.83749999999986" y="1534.0" />
-      <point x="-135.83749999999986" y="1544.0" />
-      <point x="-569.6499999999999" y="1544.0" />
-      <point x="56.0" y="-77.5" />
+      <point x="-176.5" y="-15.0" />
+      <point x="-586.353834415357" y="231.5" />
+      <point x="-586.353834415357" y="1406.5" />
+      <point x="-112.0" y="15.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.HourlyBillingStrategy" target="DesignPatterns.ParkingLot.Billing.BillingStrategyType" relationship="TO_ONE">
-      <point x="-139.5" y="77.5" />
-      <point x="-1176.0604687499997" y="437.0" />
-      <point x="-1296.81046875" y="437.0" />
-      <point x="0.0" y="-66.0" />
+      <point x="-186.0" y="0.0" />
+      <point x="-1020.837801608579" y="941.6921358355675" />
+      <point x="-1020.837801608579" y="768.5" />
+      <point x="-1514.7655991212393" y="768.5" />
+      <point x="-1514.7655991212393" y="1302.6930294906167" />
+      <point x="-134.0" y="0.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.FlatPriceBillingStrategy" target="DesignPatterns.ParkingLot.Billing.BillingStrategyType" relationship="TO_ONE">
-      <point x="124.0" y="77.5" />
-      <point x="-1323.0" y="437.0" />
-      <point x="-1296.81046875" y="437.0" />
+      <point x="-123.92779751266039" y="77.5" />
       <point x="0.0" y="-66.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.models.Vehicle" relationship="DEPENDENCY">
-      <point x="123.55000000000001" y="169.5" />
-      <point x="-200.19999999999982" y="447.0" />
-      <point x="14.537500000000136" y="447.0" />
-      <point x="0.0" y="-66.0" />
+      <point x="169.0" y="169.5" />
+      <point x="-60.00541666666618" y="-66.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.ParkingLevel" relationship="CREATE">
-      <point x="88.25" y="169.5" />
-      <point x="-235.5" y="457.0" />
-      <point x="-73.21249999999986" y="457.0" />
-      <point x="77.25" y="-158.0" />
+      <point x="176.5" y="15.0" />
+      <point x="215.24583333333317" y="261.5" />
+      <point x="-15.0" y="-158.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.BillingManager" target="DesignPatterns.ParkingLot.Billing.BillingStrategy" relationship="TO_ONE">
-      <point x="-110.25" y="112.0" />
-      <point x="-614.2124999999999" y="835.0" />
-      <point x="-748.7124999999999" y="835.0" />
-      <point x="-748.7124999999999" y="845.0" />
-      <point x="-837.4624999999999" y="845.0" />
-      <point x="93.0" y="-42.5" />
+      <point x="-20.5" y="112.0" />
+      <point x="-448.99736111111156" y="1279.1930294906167" />
+      <point x="186.0" y="0.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.HourlyBillingStrategy" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="TO_MANY">
-      <point x="-46.5" y="77.5" />
-      <point x="-1083.0604687499997" y="437.0" />
-      <point x="-1126.9624999999999" y="437.0" />
-      <point x="-1126.9624999999999" y="1544.0" />
-      <point x="-681.6499999999999" y="1544.0" />
-      <point x="-56.0" y="-77.5" />
+      <point x="186.0" y="15.0" />
+      <point x="-463.99736111111156" y="956.6921358355675" />
+      <point x="-10.425000000000182" y="-77.5" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.BillingStrategy" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="DEPENDENCY">
       <point x="0.0" y="42.5" />
-      <point x="-930.4624999999999" y="1534.0" />
-      <point x="-135.83749999999986" y="1534.0" />
-      <point x="-135.83749999999986" y="1544.0" />
-      <point x="-569.6499999999999" y="1544.0" />
-      <point x="56.0" y="-77.5" />
+      <point x="-972.9501388888891" y="1361.1930294906167" />
+      <point x="-112.0" y="-30.30697050938329" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.models.Vehicle" target="DesignPatterns.ParkingLot.models.VehicleType" relationship="DEPENDENCY">
       <point x="0.0" y="66.0" />
-      <point x="14.537500000000136" y="1534.0" />
-      <point x="-135.83749999999986" y="1534.0" />
-      <point x="-135.83749999999986" y="1544.0" />
-      <point x="-569.6499999999999" y="1544.0" />
-      <point x="56.0" y="-77.5" />
+      <point x="87.50263888888844" y="1391.5" />
+      <point x="112.0" y="0.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLot" target="DesignPatterns.ParkingLot.Billing.BillingManager" relationship="TO_ONE">
-      <point x="-52.950000000000045" y="169.5" />
-      <point x="-376.70000000000005" y="437.0" />
-      <point x="-393.71249999999986" y="437.0" />
-      <point x="110.25" y="-112.0" />
+      <point x="-169.0" y="169.5" />
+      <point x="117.99458333333382" y="-112.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.BillingManager" target="DesignPatterns.ParkingLot.models.Ticket" relationship="DEPENDENCY">
-      <point x="110.25" y="112.0" />
-      <point x="-393.71249999999986" y="825.0" />
-      <point x="-448.96249999999986" y="825.0" />
-      <point x="-40.5" y="-89.0" />
+      <point x="147.0" y="0.0" />
+      <point x="-171.50277777777774" y="664.0" />
+      <point x="-51.00541666666618" y="-89.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.ParkingLevel" target="DesignPatterns.ParkingLot.models.Slot" relationship="TO_MANY">
-      <point x="38.625" y="158.0" />
-      <point x="-111.83749999999986" y="825.0" />
-      <point x="-139.61874999999964" y="825.0" />
-      <point x="-139.61874999999964" y="1295.0" />
-      <point x="-80.66463541666644" y="1295.0" />
-      <point x="71.33333333333331" y="-89.0" />
+      <point x="44.6943055555555" y="158.0" />
+      <point x="15.0" y="-66.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.HourlyBillingStrategy" target="DesignPatterns.ParkingLot.Billing.BillingManager" relationship="DEPENDENCY">
-      <point x="139.5" y="77.5" />
-      <point x="-897.0604687499997" y="437.0" />
-      <point x="-540.7124999999999" y="437.0" />
-      <point x="-36.75" y="-112.0" />
+      <point x="186.0" y="0.0" />
+      <point x="-433.99736111111156" y="941.6921358355675" />
+      <point x="-5.5" y="112.0" />
     </edge>
     <edge source="DesignPatterns.ParkingLot.Billing.BillingManager" target="DesignPatterns.ParkingLot.Billing.BillingManager" relationship="DEPENDENCY">
-      <point x="-110.25" y="-112.0" />
-      <point x="-614.2124999999999" y="514.0" />
-      <point x="-670.9624999999999" y="514.0" />
-      <point x="-670.9624999999999" y="646.0" />
-      <point x="-147.0" y="0.0" />
+      <point x="124.0" y="112.0" />
+      <point x="-304.49736111111156" y="793.5" />
+      <point x="-248.99736111111156" y="793.5" />
+      <point x="-248.99736111111156" y="679.0" />
+      <point x="147.0" y="15.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.6662797315940285" showDependencies="true" x="-625.8004990653435" y="1072.2887812304918" />
+  <settings layout="Hierarchic" zoom="0.7727272727272727" showDependencies="true" x="-546.0" y="774.0" />
   <SelectedNodes />
   <Categories>
     <Category>Fields</Category>

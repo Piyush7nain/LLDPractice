@@ -45,15 +45,13 @@ public class ParkingLotTest {
         Vehicle car = new Vehicle("KA-01-1234", VehicleType.CAR);
         Optional<Ticket> ticket = parkingLot.parkVehicle(car);
         assertTrue(ticket.isPresent());
-        assertEquals(car.vehicleType(), ticket.get().slot().vehicleType());
-        assertEquals(car.licensePlate(), ticket.get().slot().licensePlate());
+        assertEquals(car, ticket.get().slot().vehicle());
         assertNotNull(ticket.get().slot());
 
         Thread.sleep(100); // simulate short stay
         Optional<Receipt> receipt = parkingLot.unparkVehicle(ticket.get());
         assertTrue(receipt.isPresent());
-        assertEquals(car.vehicleType(), receipt.get().vehicleType());
-        assertEquals(car.licensePlate(), receipt.get().licensePlate());
+        assertEquals(car, receipt.get().vehicle());
         assertTrue(receipt.get().fee() >= 0);
     }
 
@@ -62,12 +60,10 @@ public class ParkingLotTest {
         Vehicle bike = new Vehicle("KA-02-1111", VehicleType.BIKE);
         Optional<Ticket> ticket = parkingLot.parkVehicle(bike);
         assertTrue(ticket.isPresent());
-        assertEquals(bike.vehicleType(), ticket.get().slot().vehicleType());
-        assertEquals(bike.licensePlate(), ticket.get().slot().licensePlate());
+        assertEquals(bike, ticket.get().slot().vehicle());
 
         Optional<Receipt> receipt = parkingLot.unparkVehicle(ticket.get());
-        assertEquals(bike.vehicleType(), receipt.get().vehicleType());
-        assertEquals(bike.licensePlate(), receipt.get().licensePlate());
+        assertEquals(bike, receipt.get().vehicle());
         assertTrue(receipt.get().fee() >= 0);
     }
 
@@ -105,15 +101,13 @@ public class ParkingLotTest {
     public void testTicketAndReceiptAccuracy() throws InterruptedException {
         Vehicle car = new Vehicle("KA-03-3333", VehicleType.CAR);
         Optional<Ticket> ticket = parkingLot.parkVehicle(car);
-        assertEquals(car.vehicleType(), ticket.get().slot().vehicleType());
-        assertEquals(car.licensePlate(), ticket.get().slot().licensePlate());
+        assertEquals(car, ticket.get().slot().vehicle());
         assertNotNull(ticket.get().entryTime());
         assertNotNull(ticket.get().slot());
 
         Thread.sleep(100);
         Optional<Receipt> receipt = parkingLot.unparkVehicle(ticket.get());
-        assertEquals(car.licensePlate(), receipt.get().licensePlate());
-        assertEquals(car.vehicleType(), receipt.get().vehicleType());
+        assertEquals(car, receipt.get().vehicle());
         assertNotNull(receipt.get().entryTime());
         assertNotNull(receipt.get().exitTime());
         assertTrue(receipt.get().fee() > 0);
@@ -142,7 +136,7 @@ public class ParkingLotTest {
     public void testInvalidUnparkAttempt() {
         Vehicle car = new Vehicle("KA-05-1111", VehicleType.CAR);
         LocalDateTime date = LocalDateTime.now();
-        Ticket ticket = new Ticket(UUID.randomUUID().toString(),date.toLocalTime().toString(), new Slot(1, car.vehicleType(), car.licensePlate()));
+        Ticket ticket = new Ticket(UUID.randomUUID().toString(),date.toLocalTime().toString(), new Slot(1, car));
         Optional<Receipt> receipt = parkingLot.unparkVehicle(ticket);
         assertFalse( "Unparking with invalid ticket should fail", receipt.isPresent());
     }

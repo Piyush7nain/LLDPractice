@@ -55,7 +55,7 @@ public class ParkingLevel {
         writeLock.lock();
         try{
             Optional<Slot> optional = Optional.empty();
-            Slot slot = new Slot(parkingLevel, vehicle.vehicleType(), vehicle.licensePlate());
+            Slot slot = new Slot(parkingLevel, vehicle);
             if(available(vehicle.vehicleType())&& !isParked(slot)){
                 slots.put(vehicle.licensePlate(), slot);
                 removeSlot(slot);
@@ -71,7 +71,7 @@ public class ParkingLevel {
         writeLock.lock();
         try{
             if(isParked(slot)) {
-                slots.remove(slot.licensePlate());
+                slots.remove(slot.vehicle().licensePlate());
                 addSlot(slot);
                 return true;
             }
@@ -84,7 +84,7 @@ public class ParkingLevel {
     public boolean isParked(Slot slot){
         readLock.lock();
         try{
-            return slots.containsKey(slot.licensePlate()) && slots.get(slot.licensePlate()).vehicleType().equals(slot.vehicleType());
+            return slots.containsKey(slot.vehicle().licensePlate()) && slots.get(slot.vehicle().licensePlate()).vehicle().vehicleType().equals(slot.vehicle().vehicleType());
         }finally {
             readLock.unlock();
         }
@@ -93,7 +93,7 @@ public class ParkingLevel {
         writeLock.lock();
         try{
             if(slot==null) return;
-            availableSlots.put(slot.vehicleType(), availableSlots.getOrDefault(slot.vehicleType(), 0) + 1);
+            availableSlots.put(slot.vehicle().vehicleType(), availableSlots.getOrDefault(slot.vehicle().vehicleType(), 0) + 1);
         }finally {
             writeLock.unlock();
         }
@@ -104,8 +104,8 @@ public class ParkingLevel {
         writeLock.lock();
         try{
             if(slot==null) return;
-            if(availableSlots.get(slot.vehicleType())==0) return;
-            availableSlots.put(slot.vehicleType(), availableSlots.getOrDefault(slot.vehicleType(), 0) - 1);
+            if(availableSlots.get(slot.vehicle().vehicleType())==0) return;
+            availableSlots.put(slot.vehicle().vehicleType(), availableSlots.getOrDefault(slot.vehicle().vehicleType(), 0) - 1);
         } finally {
             writeLock.unlock();
         }

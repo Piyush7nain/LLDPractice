@@ -25,7 +25,6 @@ public class ParkingLot {
     private final String parkingLotName;
     private final List<ParkingLevel> parkingLevels;
     private final BillingManager billingManager;
-    private BillingStrategy billingStrategy;
     public ParkingLot(String parkingLotName, int levels, Map<VehicleType, Integer> floorMap, BillingStrategy billingStrategy) {
         this.parkingLotName = parkingLotName;
         this.parkingLevels =  new ArrayList<>();
@@ -34,7 +33,6 @@ public class ParkingLot {
             parkingLevels.add(level1);
         }
         this.billingManager = new BillingManager(billingStrategy);
-        this.billingStrategy = billingStrategy;
 
     }
 
@@ -91,7 +89,6 @@ public class ParkingLot {
         return true;
     }
     public void setBillingStrategy(BillingStrategy billingStrategy) {
-        this.billingStrategy = billingStrategy;
         billingManager.setBillingStrategy(billingStrategy);
     }
 }

@@ -23,11 +23,10 @@ public class BillingManager {
         String startTime = ticket.entryTime();
         String endTime = addTime(startTime);
         String timeDiff = getTimeDifference(startTime, endTime);
-        double fee = billingStrategy.getBillingReceipt(startTime, endTime, ticket.slot().vehicleType());
+        double fee = billingStrategy.getBillingReceipt(startTime, endTime, ticket.slot().vehicle().vehicleType());
         return new Receipt(
                 ticket.id(),
-                ticket.slot().vehicleType(),
-                ticket.slot().licensePlate(),
+                ticket.slot().vehicle(),
                 startTime,
                 endTime,
                 timeDiff,
