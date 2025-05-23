@@ -29,7 +29,6 @@ public class ProducerConsumerUsingLock {
                 Thread.currentThread().interrupt();
             }
         });
-
         producer.start();
         consumer.start();
     }

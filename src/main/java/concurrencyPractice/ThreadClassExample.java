@@ -7,6 +7,7 @@ public class ThreadClassExample {
         System.out.println("First running from Thread: "+Thread.currentThread().getName());
         ThreadClass tc = new ThreadClass();
         tc.start();
+
         System.out.println("Finished running Thread: "+Thread.currentThread().getName());
 
     }

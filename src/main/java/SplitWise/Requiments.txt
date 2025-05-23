@@ -1,0 +1,91 @@
+🎯 1. Core Functional Requirements
+✅ User Management
+Users should be able to register with a name, email, and phone number.
+Each user should have a unique user ID.
+
+✅ Groups
+Users can create groups (e.g., “Trip to Goa”, “Office Lunch”).
+Groups can have multiple members.
+
+✅ Expenses
+Users can add an expense:
+Who paid
+How much was paid
+What type of split:
+Equal split (everyone pays equally)
+Exact split (custom amount per user)
+Percentage split (custom percentage per user)
+Support multi-party expenses — not just between two people.
+
+✅ Balances
+Each user can see:
+How much they owe to others.
+How much others owe them.
+Balances should be minimized:
+If A owes B $50 and B owes C $50, A should directly pay C $50 (optional advanced feature called debt simplification).
+
+✅ Viewing Expenses
+User can view:
+Their own balances.
+All group expenses.
+Expense history.
+
+✅ Debt Simplification (Optional)
+System can automatically suggest minimized number of payments between users.
+
+🎯 2. Extended Functional Requirements
+✅ Notifications
+(Optional) Notify users when someone adds an expense or settles a balance.
+✅ Settlement
+Allow manual settlement: A user can settle (pay off) what they owe.
+✅ Expense Categories
+Categorize expenses: food, travel, rent, etc.
+✅ Currency Support
+(Optional) Allow expenses in different currencies with conversion.
+✅ Audit Trails
+Keep a history of all added, edited, deleted expenses.
+✅ Authentication and Authorization
+(Out of LLD scope typically, but good to mention).
+
+
+🧠 Design Patterns Likely Used in Splitwise
+Pattern	                        Where It’s Used	Why
+Strategy Pattern	            Splitting strategies (EqualSplit, ExactSplit, PercentageSplit)	To plug different splitting algorithms at runtime.
+Factory Pattern	                Split Object Creation	To create the right type of split object dynamically.
+Singleton Pattern	            UserManager, ExpenseManager, BalanceSheet	Ensure only one instance managing users/expenses across the app.
+Observer Pattern (Optional)	    Notifications when new expense is added.	Notify users when an expense affecting them is added.
+Builder Pattern	                Building complex Expense or User objects.	Make object construction readable and flexible.
+Composite Pattern (Optional)	Handling groups (group of users as a single entity)	Treat individual users and groups uniformly in some operations.
+
+🏛️ High Level Entities
+Entity	        Key Fields
+User	        id, name, email, phoneNumber
+Group	        id, name, List of Users
+Expense	        id, paidBy, amount, List<Split>, metadata
+Split	        user, amount
+BalanceSheet	user, Map<otherUser, amount>
+ExpenseManager	Map<groupId, List<Expense>>
+UserManager	    List of Users
+
+📌 Example Workflows
+▶️ Add an expense:
+Alice creates an expense "Dinner", paid $100, split equally among Alice, Bob, Charlie.
+
+▶️ View Balance:
+Bob checks and sees he owes Alice $33.33.
+
+▶️ Simplify Debt:
+Bob owes Charlie $50, Charlie owes Alice $50 → Bob can directly pay Alice.
+
+⚡ Scalability Thoughts
+(Usually not asked unless senior-level LLD, but good to know)
+Shard data by userId or groupId.
+Use caching for balances.
+Event-driven notification service (Kafka, RabbitMQ).
+
+🚀 Quick Summary
+Aspect	        Focus
+Must Know	    Strategy, Factory, Singleton
+Good to Know	Observer, Builder, Composite
+Key Concepts	Splitting logic, balance calculation, group expense distribution
+Bonus	        Debt Simplification logic
