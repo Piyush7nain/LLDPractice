@@ -1,0 +1,64 @@
++---------------------+           +---------------------+
+|        User         |           |        Group        |
++---------------------+           +---------------------+
+| - id: String        |           | - id: String        |
+| - name: String      |           | - name: String      |
+| - email: String     |           | - members: List<User>|
++---------------------+           +---------------------+
+          ^                                 ^
+          |                                 |
++---------------------+                 +---------------------+
+|     UserManager     |                 |     GroupManager    |
++---------------------+                 +---------------------+
+| - users: Map<String, User>|           | - groups: Map<String, Group>|
+| + createUser(name, email): User |     | + createGroup(name, members): Group|
+| + getUser(id): User |                 | + getGroup(id): Group|
++---------------------+                 +---------------------+
+          ^                                 ^
+          |                                 |
++---------------------+           +---------------------+
+|      Expense        |           |     Transaction     |
++---------------------+           +---------------------+
+| - id: String        |           | - payer: User       |
+| - description: String|           | - owedBy: User      |
+| - amount: double    |           | - amount: double    |
+| - paidBy: User      |           +---------------------+
+| - participants: List<User>|
+| - splitStrategy: SplitStrategy|<>-------+
+| - date: Date        |
+| - category: String  |
+| - groupId: String   |
+| + getTransactions(): List<Transaction>|
++---------------------+
+          ^
+          |
++---------------------+           +---------------------+
+|   ExpenseFactory    |           |    SplitStrategy    | <<Interface>>
++---------------------+           +---------------------+
+| + createExpense(...): Expense |<-----| + calculateSplits(...): List<Transaction>|
++---------------------+           +---------------------+
+                                            ^ ^ ^ ^
+                                            | | | |
+                                            | | | |
+                                            | | | |
+          +---------------------+           | | | | +---------------------+
+          | EqualSplitStrategy  |           | | +---| PercentageSplitStrategy|
+          +---------------------+           | +-----| ExactSplitStrategy  |
+                                            +-------| ShareSplitStrategy  |
+                                                    +---------------------+
+
++---------------------+           +---------------------+
+|    BalanceManager   |           |  NotificationService|
++---------------------+           +---------------------+
+| + calculateBalances(expenses: List<Expense>): Map<User, Map<User, Double>>| | - observers: List<UserObserver>|
+| + simplifyDebts(balances): Map<User, Map<User, Double>>| | + addObserver(observer): void|
+| + recordSettlement(payer, receiver, amount): void| | + notifyUser(user, message): void|
++---------------------+           +---------------------+
+                                            ^
+                                            |
+                                    +---------------------+
+                                    |    UserObserver     | <<Interface>>
+                                    +---------------------+
+                                    | + onNotification(message): void|
+                                    +---------------------+
+4.

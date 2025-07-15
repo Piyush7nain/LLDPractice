@@ -19,7 +19,6 @@ public class TokenBucketRateLimiter {
         long now = System.nanoTime();
         long elapsedTime = now - lastRefillTimestamp;
         int tokensToAdd = (int) ((elapsedTime / 1_000_000_000.0) * refillRate);
-        float a = 1_0;
         if (tokensToAdd > 0) {
             tokens = Math.min(capacity, tokens + tokensToAdd);
             lastRefillTimestamp = now;

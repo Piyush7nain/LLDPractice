@@ -478,6 +478,7 @@ class PaymentService {
 
     // Simulates a callback from an external payment gateway
     public boolean processPaymentCallback(String paymentId, PaymentStatus status) {
+        Set<Integer> set = new HashSet<>();
         Payment payment = payments.get(paymentId);
         if (payment == null) {
             System.err.println("Error: Payment ID " + paymentId + " not found for callback.");
